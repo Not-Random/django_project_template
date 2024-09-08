@@ -1,0 +1,47 @@
+services:
+  app-db: # -------------------- PostgreSQL database service -------------------
+    image: postgres:12.2-alpine
+    # avoids many permission errors trying to write temp files to pgdata volume
+    command: postgres -c stats_temp_directory=/tmp
+    env_file:
+      - ../environments/.env.local
+    ports:
+      - 5432:5432 # host port : container port
+    volumes:
+      - ../volumes/pgdata/app:/var/lib/postgresql/data/
+
+  app:  # --------------------- app service ------------------------------------
+    build:
+      context: ../.
+      dockerfile: docker/Dockerfile
+
+    command: "gunicorn project.wsgi:application --bind 0.0.0.0:8000"
+
+    volumes:
+      - ../volumes/static_root:/app/static_root
+      - ../volumes/media_root:/app/media_root
+      - ../volumes/logs:/app/logs
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      - app-db
+
+
+  # >>>>>>>>>>> uncomment if you need to deploy with an Nginx web server <<<<<<<
+  # nginx: # -------------------- Nginx webserver --------------------------------
+  #   image: nginx:latest
+  #   volumes:
+  #     - ../volumes/static_root:/app/static_root
+  #     - ../volumes/media_root:/app/media_root
+  #     - ./volumes/default.conf:/etc/nginx/conf.d/default.conf
+  #     - ./volumes/ssl/:/etc/nginx/ssl   # folder keeping the crt & private key for HTTPS
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   depends_on:
+  #     - app
+
+
+

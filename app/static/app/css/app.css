@@ -1,0 +1,14 @@
+.myclass {
+    background-color: blue;
+}
+.disclaimer-note {
+    background-color: #f8d7da; /* Light red background for attention */
+    color: #721c24; /* Dark red text color for emphasis */
+    border: 1px solid #f5c6cb; /* Light red border for visual separation */
+    border-radius: 5px; /* Rounded corners for a softer look */
+    padding: 15px; /* Spacing inside the box */
+    margin: 20px 0; /* Space above and below the note */
+    font-family: Arial, sans-serif; /* Clean and readable font */
+    font-size: 14px; /* Slightly larger text for readability */
+    line-height: 1.6; /* Spacing between lines for improved readability */
+  }

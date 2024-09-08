@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Django Project Template</h2>
+        <br>
+        <p>
+            Welcome!! Thank you for trying this Django template from
+             <strong><a href="https://notrandom.net">NotRandom.Net</a></strong>. This is a template of a Django project that, I hope, will
+            help people that want to learn how to use Django with a basic
+            example of a Django project. The project includes several features:
+        </p>
+
+        <ul>
+            <li><strong>Docker-ready</strong> Run the project from a docker
+                container using a PostgreSQL database. In the 'volumes' folder 
+                you will find the container files, stored in your (host) computer.
+                Take a look at the 'docker' folder and Test
+                docker and docker compose. Don't forget to setup the .env file
+                as 'local' to run a test container in your PC.
+            </li>
+            <li><strong>Multiple Deployment Modes</strong>: The project is enabled
+                to work in different envrionment modes depending of the type of
+                deployment you need to do. If you want to start with tests in your
+                local PC, set the '.env' file to 'local_wo_container' (Local 
+                Without Container, using the included SQLite3 database). Or pick
+                'dev' or 'production' if you want to use with docker in other
+                environments.
+
+            </li>
+            <li><strong>Nginx sample Included</strong> uncomment the Nginx service in the
+                docker/docker-compose.yml file and get some ideas on how to
+                use the popular <a href="https://nginx.org/">Nginx</a> webserver
+                with your django project in a docker container environment.
+            </li>
+            <li><strong>Working CSS</strong>: Making the CSS and static content
+                work can be a bit frustrating, as there are severa; factors
+                to keep in mind. This working example can help you to review 
+                how to set it up.
+            </li>
+            <li><strong>Bootstrap 5</strong>: The 'base.html' file provides a
+                working example of how to setup bootstrap. Take a look at the
+                <a href="https://getbootstrap.com/" target="_blank">Bootstrap Page</a> and see
+                all the cool things you can do with it + Django.
+
+            </li>
+            <br>
+            <br>
+        </ul>
+        <p>Enjoy and I hope you find it useful!!</p>
+        <p class="disclaimer-note">Disclaimer: (Legal Stuff!): This software is provided for testing and evaluation purposes only. It is not intended for production use or deployment in live environments. Users are strongly advised to thoroughly review and test the software in a controlled setting before considering any deployment to production systems.
+
+            No guarantees or warranties, express or implied, are provided with this software. The developers and distributors of this software shall not be liable for any damages, losses, or issues that may arise from its use. Proceed with caution and ensure comprehensive testing and validation prior to any live implementation. 
+        </p>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- Add this if you want to use Bootstrap and Jquery in the site for styling and Javascript/Jquery actions -->
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>            
+        <!-- End of the bootstrap and JavaScript/Jquery links -->
+
+        <!-- add this if you want to use a css stylesheet file of your own -->
+        <link rel="stylesheet" type="text/css" href="{% static 'app/css/app.css' %}">
+    </head>
+    <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <a class="navbar-brand" href="#">YourBrand</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'test' %}">Test</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'upload_file' %}">Upload an Excel File</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Dropdown link
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="{% url 'upload_file' %}">Upload an Excel File</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </li>
+                      {% if user.is_authenticated %}
+                      <li class="nav-item">User: {{ user.get_username }}</li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                    {% else %}
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a></li>
+                    {% endif %}
+                    </ul>
+                  </div>
+              </nav>
+            {% if user.is_authenticated %}
+            User: {{ user.get_username }}
+            <a href="#" class="external">Logout</a>
+          {% else %}
+            <a href="#" class="external">Login</a>
+          {% endif %}
+            <!-- this is where the content of each of your html templates will go -->
+            {% block content %}
+            {% endblock %}
+    </body>
+</html>

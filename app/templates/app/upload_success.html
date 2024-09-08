@@ -1,0 +1,20 @@
+<!-- myapp/templates/myapp/upload_success.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Success</title>
+</head>
+<body>
+    <h1>File Upload Successful</h1>
+    <table border="1">
+        {% for row in data %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'upload_file' %}">Upload another file</a>
+</body>
+</html>

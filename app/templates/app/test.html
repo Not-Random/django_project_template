@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <!-- this is what will be inserted into the 'base.html' template -->
+    <div class="container-fluid">
+        <h2>Basic Django Demo</h2>
+        <p>If you are seeing this, it means that the container worked and <b>Django is working.
+            Congratulations!! </b> Now you can replace this sample index.html template with whatever
+            content you want to be in your main page!
+        </p>
+        <p>Now you need to start writing your views, adding html templates, creating forms, adding classes, etc.</p>
+        <br>
+
+        <h3>CSS Validation</h3>
+        <p> If you see the blue background, then your CSS is working!</p>
+        <p class="myclass">whatever whatever whatever whatever whatever whatever whatever 
+            whatever whatever whatever whatever whatever whatever whatever whatever 
+            whatever whatever whatever whatever whatever whatever whatever whatever 
+            whatever whatever whatever whatever whatever whatever whatever whatever
+             whatever whatever whatever whatever whatever whatever whatever whatever 
+             whatever whatever whatever whatever whatever whatever whatever
+        </p>
+        <br>
+        <h3>Bootstrap Validation</h3>
+        <p>If you see colorful buttons below, then Bootstrap is working!</p>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>    
+    </div>
+
+    <!-- small JavaScript code just to test it is working -->
+    <script type="text/Javascript">
+        alert("If you are seeing this, the JavaScript is also working!!");
+    </script>
+
+{% endblock %}

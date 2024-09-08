@@ -1,0 +1,15 @@
+# Everything listed here will be ignored by GIT, which means it will not be
+# added to the git repositories
+
+*.pyc
+# skip all the sensitive '.env' files that are in this folder, 
+# BUT keep the ".env" file in BASE_DIR.
+
+# IMPORTANT: Uncomment the line below when deploying to Production!!!!
+# otherwise your sensitive information could be loaded to repositories.
+#environments/
+
+volumes/
+db.sqlite3
+migrations/
+venv/
